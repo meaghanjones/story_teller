@@ -6,6 +6,7 @@ class Story<ActiveRecord::Base
 
   before_save(:capitalize_content)
 
+
 private
   define_method :capitalize_content do
     self.content = (content().capitalize())

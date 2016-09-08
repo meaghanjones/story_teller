@@ -1,0 +1,8 @@
+<%= form_tag "/stories/#{@story.id}/sentences", method: 'get' do %>
+  <div class="input-group">
+    <%= text_field_tag :search, nil, placeholder: 'Search', class: 'form-control' %>
+    <div class="input-group-btn">
+      <%= submit_tag 'Search', class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>

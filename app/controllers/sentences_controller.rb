@@ -1,4 +1,12 @@
 class SentencesController<ApplicationController
+
+  def index
+    @story = Story.find(params[:story_id])
+    @query = params[:search]
+    @results = @story.sentences.all.basic_search(@query)
+    render :search_results
+  end
+
   def show
     @story = Story.find(params[:story_id])
     @sentence = Sentence.find(params[:id])
@@ -48,8 +56,9 @@ class SentencesController<ApplicationController
 
   end
 
-  private
+private
   def sentence_params
     params.require(:sentence).permit(:username, :content)
   end
+
 end

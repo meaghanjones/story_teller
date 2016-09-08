@@ -1,0 +1,11 @@
+<div class="form-group">
+  <% if @results.any? %>
+    <ul class="list-unstyled">
+      <% @results.each do |sentence| %>
+        <li><%= sentence.content%></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No lessons found.</p>
+  <% end %>
+</div>
