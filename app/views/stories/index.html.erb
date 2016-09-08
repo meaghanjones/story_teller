@@ -1,10 +1,11 @@
 <h1>Stories</h1>
-<%= link_to "Get a Random Story", story_path(Story.all.sample)%>
-<ul>
-  <% @stories.order(:content).each do |story| %>
-    <img src="<%= story.imgURL %>" />
-    <li><%= link_to story.content, story_path(story)%> </li>
-  <%end%>
-</ul>
-
+<% if @stories.any? %>
+  <%= link_to "Get a Random Story", story_path(Story.all.sample)%>
+  <ul>
+    <% @stories.order(:content).each do |story| %>
+      <img src="<%= story.imgURL %>" />
+      <li><%= link_to story.content, story_path(story)%> </li>
+    <%end%>
+  </ul>
+<%end %>
 <%= link_to "New Story", new_story_path %>
