@@ -1,9 +1,21 @@
+<h1>Stories with sentences</h1>
 
 <p><img src="<%= @story.imgURL %>" /></p>
 <h1><%=@story.content %></h1>
 
+<ol>
+  <% @story.sentences.each do |sentence| %>
+    <li><%=link_to sentence.content, story_sentence_path(@story, sentence)%> by   <%=sentence.username %></li>
+  <%end%>
+</ol>
+
+
+
+<hr>
+<p><%= link_to "New Sentence", new_story_sentence_path(@story) %></p>
+
 
 <hr>
 <p><%= link_to "Return to Stories", stories_path %></p>
-<p><%= link_to "Edit", edit_story_path(@story) %></p>
-<p><%= link_to "Delete", story_path(@story), :data => {:confirm => "You sure?",                             :method => "delete"} %></p>
+<p><%= link_to "Edit Story", edit_story_path(@story) %></p>
+<p><%= link_to "Delete Story", story_path(@story), :data => {:confirm => "You sure?",                             :method => "delete"} %></p>
