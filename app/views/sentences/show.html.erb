@@ -1,8 +1,12 @@
-  <h2><%=@sentence.content %><h2>
-  <h4>By <%=@sentence.username %></h4>
+<p><img src="<%= @story.imgURL %>" /></p>
+<h2>Beginning: <%=@story.content %></h2>
 
 
-<p><%= link_to "Edit", edit_story_sentence_path(@story, @sentence) %></p>
+<h3><%=@sentence.content %>    <span class="smallerEdit"><%= link_to "Edit", edit_story_sentence_path(@story, @sentence) %></span></h3>
+<h5>By <%=@sentence.username %></h5>
+<hr>
+
+
 <p><%= link_to "Delete ", story_sentence_path(@story, @sentence), :data => {:confirm => "You sure?",                             :method => "delete"} %></p>
 
 
