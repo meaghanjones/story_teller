@@ -15,6 +15,7 @@ class SentencesController<ApplicationController
     @story = Story.find(params[:story_id])
     @sentence = @story.sentences.new(sentence_params)
     if @sentence.save
+      flash[:notice] = "Sentence successfully added!"
       redirect_to story_path(@story)
     else
       render :new
@@ -31,6 +32,7 @@ class SentencesController<ApplicationController
     @story = Story.find(params[:story_id])
     @sentence = Sentence.find(params[:id])
     if @sentence.update(sentence_params)
+      flash[:notice] = "Sentence successfully eddited!"
       redirect_to story_path(@story)
     else
       render :edit
@@ -41,6 +43,7 @@ class SentencesController<ApplicationController
     @story = Story.find(params[:story_id])
     @sentence = Sentence.find(params[:id])
     @sentence.destroy
+    flash[:notice] = "Sentence successfully deleted!"
     redirect_to story_path(@story)
 
   end
