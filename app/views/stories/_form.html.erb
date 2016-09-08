@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @story %>
+
+<%= form_for @story do |f| %>
+  <%= f.label :imgURL, "Image URL" %>
+  <%= f.text_field :imgURL %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

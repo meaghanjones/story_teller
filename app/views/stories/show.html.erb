@@ -1,0 +1,9 @@
+
+<p><img src="<%= @story.imgURL %>" /></p>
+<h1><%=@story.content %></h1>
+
+
+<hr>
+<p><%= link_to "Return to Stories", stories_path %></p>
+<p><%= link_to "Edit", edit_story_path(@story) %></p>
+<p><%= link_to "Delete", story_path(@story), :data => {:confirm => "You sure?",                             :method => "delete"} %></p>
