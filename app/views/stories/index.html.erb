@@ -1,8 +1,8 @@
 <h1>Stories</h1>
 <ul>
-  <% @stories.each do |story| %>
-    <li><img src="<%= story.imgURL %>" /></li>
-    <li> <%= link_to story.content, story_path(story)%> </li>
+  <% @stories.order(:content).each do |story| %>
+    <img src="<%= story.imgURL %>" />
+    <li><%= link_to story.content, story_path(story)%> </li>
   <%end%>
 </ul>
 
